@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login - prac</title>
+</head>
+<body>
+    <form>
+        <h1>회원가입</h1>
+        <div>E-MAIL <input type="email"></div>
+        <div>PASSWORD <input type="password"></div>
+        <button type="submit">가입</button> <!-- submit은 정보전달 가능하다. -->
+        <button>로그인</button>
+    </form>
+    <script type="module">
+        /*********************** fire base 연동하기 시작 ***********************/
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyDUA4G4enZB8-zJUgRUP_GipHN-vzrsxb0",
+            authDomain: "kh-semi-terrgym.firebaseapp.com",
+            projectId: "kh-semi-terrgym",
+            storageBucket: "kh-semi-terrgym.appspot.com",
+            messagingSenderId: "896184965835",
+            appId: "1:896184965835:web:f8c569ac1347e61b8e594e",
+            measurementId: "G-W8RPCSDZDG"
+        };
+        /************************ fire base 연동하기 끝 ************************/
+
+        /************************ 
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+        const auth = getAuth();
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            });
+
+        console.log(app); // firebase 연결 되었는지 확인해보기
+    </script>
+</body>
+</html>
