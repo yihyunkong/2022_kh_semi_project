@@ -54,6 +54,42 @@ div.contents {
     height: 600;
 }
 
+.home {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-position: center;
+}
+
+.bottom-box {
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.bottom-box > .community {
+    width: 350px;
+    height: 350px;
+    margin-right: 19px;
+    border-radius: 20px 20px 20px 20px;
+    background-color: rgb(243, 243, 243);
+}
+
+.bottom-box > .map {
+    width: 350px;
+    height: 350px; 
+    margin-right: 18px;
+    border-radius: 20px 20px 20px 20px;
+    background-color: rgb(243, 243, 243);
+}
+
+.bottom-box > .time {
+    width: 350px;
+    height: 350px;
+    border-radius: 20px 20px 20px 20px;
+    background-color: rgb(243, 243, 243);
+}
+
 header {
     height: 40px;
     background-color: black;
