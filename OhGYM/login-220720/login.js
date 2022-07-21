@@ -45,15 +45,17 @@ const auth = getAuth();
                 const user = userCredential.user;
                 // ...
                 console.log('로그인 성공');
+                alert('로그인 성공');
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log('로그인 실패');
+                alert('로그인 실패');
             });
 
         console.log(signInEmail, signInPassword); // 회원가입 form에 작성한 정보를 가지고온다.
-        console.log('로그인 버튼 클릭 성공');
+        console.log('로그인 버튼 클릭');
     });
     /********** 로그인 이벤트 처리 끝 **********/
 

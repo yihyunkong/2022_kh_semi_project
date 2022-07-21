@@ -1,37 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login - prac</title>
-</head>
-<body>
-    <!-- 회원가입 폼 구현하기 시작 -->
-    <form> 
-        <h1>회원가입</h1>
-        <div>이메일 <input type="email" id="signUpEmail"></div>
-        <div>비밀번호<input type="password" id="signUpPassword"></div>
-        <div>비밀번호 재확인 <input type="repassword" id="signUpRePassword"></div>
-        <div>이름 <input type="name" id="signUpName"></div>
-        <div>생년월일 <input type="birth" id="signUpBirth"></div>
-        <div>주소<input type="address" id="signUpAddress"></div>
-        <button type="submit" id="signUpButton">회원가입</button> <!-- submit은 정보전달 가능하다. -->
-    </form>
-    <!--- 회원가입 폼 구현하기 끝 --->
-
-    <!--- 로그인 폼 구현하기 시작 --->
-    <form> 
-        <h1>로그인</h1>
-        <div>E-MAIL <input type="email" id="signInEmail"></div>
-        <div>PASSWORD <input type="password" id="signInPassword"></div>
-        <button type="submit" id="signInButton">로그인</button> <!-- submit은 정보전달 가능하다. -->
-        <button>회원가입</button>
-    </form>
-    <!---- 로그인 폼 구현하기 끝 ---->
-
-    <!-------------------------------- fire base 스크립트 ------------------------------ -->
-    <script type="module">
+    // <!-------------------------------- fire base 스크립트 ------------------------------ -->
         /*********************** fire base 연동하기 시작 ***********************/
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
@@ -56,7 +23,7 @@
         const analytics = getAnalytics(app);
         /************************ fire base 연동하기 끝 ************************/
 
-        /************************ fire base 회원가입 및 로그인 코드 시작 ************************/
+        /************************ fire base 회원가입 시작 ************************/
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
 
         // 회원가입 및 로그인 구현시 중복되는 코드는 함수 내부 로컬변수가 아닌 전역변수로 설정한다.
@@ -69,15 +36,13 @@
                 // email과 password의 요소(id명)와 해당하는 값(value)를 각 변수명에 저장한다.
                 const signUpEmail = document.getElementById('signUpEmail').value;
                 const signUpPassword = document.getElementById('signUpPassword').value;
-                // 여기 부터 혼자 추기한 거,,
-                const signUpRePassword = document.getElementById('signUpRePassword').value;
                 const signUpName = document.getElementById('signUpName').value;
+                const signUpTel = document.getElementById('signUpTel').value;
                 const signUpBirth = document.getElementById('signUpBirth').value;
-                const signUpAddress = document.getElementById('signUpAddress').value;
 
                 /***** 회원가입 시 필요한 파라미터로 정보 받기 *****/
                 // 위의 const 변수를 아래 createUserWithEmailAndPassword 함수의 parameter 값으로 받아온다.
-                createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword, signUpRePassword, signUpName, signUpBirth, signUpAddress) // email과 password로 user를 생성 (변수 auth와 email, password를 파라미터로 전달 - 회원 가입 화면 내의 email, password를 전달 받으면 아래의 함수가 실행된다.) 
+                createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword, signUpName, signUpTel, signUpBirth) // email과 password로 user를 생성 (변수 auth와 email, password를 파라미터로 전달 - 회원 가입 화면 내의 email, password를 전달 받으면 아래의 함수가 실행된다.) 
                     // java의 try-catch문과 비슷하다.
                     .then((userCredential) => { // 회원가입 성공되었다면 이 부분이 실행 (.then)
                         console.log(userCredential);
@@ -93,43 +58,12 @@
                         console.log('회원가입 실패');
                     });
                 
-                console.log(signUpEmail, signUpPassword, signUpRePassword, signUpName, signUpBirth, signUpAddress); // 회원가입 form에 작성한 정보를 가지고온다.
+                console.log(signUpEmail, signUpPassword, signUpName, signUpTel, signUpBirth); // 회원가입 form에 작성한 정보를 가지고온다.
                 console.log('회원가입 버튼 클릭 성공');
                 console.log(createUserWithEmailAndPassword);
             });
             /********* 회원가입 이벤트 처리 끝 *********/
-
-            /********* 로그인 이벤트 처리 시작 *********/
-            document.getElementById('signInButton').addEventListener('click', (event) => {
-                event.preventDefault();
-
-                // email과 password의 요소(id명)와 해당하는 값(value)를 각 변수명에 저장한다.
-                const signInEmail = document.getElementById('signInEmail').value;
-                const signInPassword = document.getElementById('signInPassword').value;
-    
-                /***** 로그인 시 필요한 파라미터로 정보 받기 *****/
-                signInWithEmailAndPassword(auth, signInEmail, signInPassword)
-                    .then((userCredential) => {
-                        // Signed in
-                        const user = userCredential.user;
-                        // ...
-                        console.log('로그인 성공');
-                    })
-                    .catch((error) => {
-                        const errorCode = error.code;
-                        const errorMessage = error.message;
-                        console.log('로그인 실패');
-                    });
-
-                console.log(signInEmail, signInPassword); // 회원가입 form에 작성한 정보를 가지고온다.
-                console.log('로그인 버튼 클릭 성공');
-            });
-            /********** 로그인 이벤트 처리 끝 **********/
-
         /************************* fire base 회원가입 및 로그인 코드 끝 *************************/
 
         console.log(app); // firebase 연결 되었는지 확인해보기 (app에 관한 정보를 불러온다.)
-    </script>
-    <!-------------------------------- fire base 스크립트 ------------------------------ -->
-</body>
-</html>
+    // <!-------------------------------- fire base 스크립트 ------------------------------ -->
