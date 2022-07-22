@@ -1,0 +1,32 @@
+[debug] [2022-07-22T00:42:40.125Z] ----------------------------------------------------------------------
+[debug] [2022-07-22T00:42:40.127Z] Command:       /usr/local/bin/firebase /Users/yihyunkong/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase serve
+[debug] [2022-07-22T00:42:40.127Z] CLI Version:   11.3.0
+[debug] [2022-07-22T00:42:40.127Z] Platform:      darwin
+[debug] [2022-07-22T00:42:40.127Z] Node Version:  v16.16.0
+[debug] [2022-07-22T00:42:40.128Z] Time:          Fri Jul 22 2022 09:42:40 GMT+0900 (GMT+09:00)
+[debug] [2022-07-22T00:42:40.129Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-07-22T00:42:40.225Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-07-22T00:42:40.226Z] > authorizing via signed-in user (icanminit@gmail.com)
+[debug] [2022-07-22T00:42:40.227Z] [iam] checking project kh-semi-terrgym for permissions ["firebase.projects.get"]
+[debug] [2022-07-22T00:42:40.229Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/kh-semi-terrgym:testIamPermissions [none]
+[debug] [2022-07-22T00:42:40.231Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/kh-semi-terrgym:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-07-22T00:42:41.130Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/kh-semi-terrgym:testIamPermissions 200
+[debug] [2022-07-22T00:42:41.134Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/kh-semi-terrgym:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-07-22T00:42:41.135Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/kh-semi-terrgym [none]
+[debug] [2022-07-22T00:42:41.633Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/kh-semi-terrgym 200
+[debug] [2022-07-22T00:42:41.634Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/kh-semi-terrgym {"projectId":"kh-semi-terrgym","projectNumber":"896184965835","displayName":"2022-KH-semi-TerrGYM","name":"projects/kh-semi-terrgym","resources":{"hostingSite":"kh-semi-terrgym","realtimeDatabaseInstance":"kh-semi-terrgym-default-rtdb","storageBucket":"kh-semi-terrgym.appspot.com","locationId":"asia-northeast3"},"state":"ACTIVE"}
+[info] 
+[info] === Serving from '/Users/yihyunkong'...
+[info] 
+[debug] [2022-07-22T00:42:41.637Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/kh-semi-terrgym/sites 
+[debug] [2022-07-22T00:42:43.326Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/kh-semi-terrgym/sites 200
+[debug] [2022-07-22T00:42:43.328Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/kh-semi-terrgym/sites {"sites":[{"name":"projects/kh-semi-terrgym/sites/kh-semi-terrgym","defaultUrl":"https://kh-semi-terrgym.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2022-07-22T00:42:43.329Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/kh-semi-terrgym/webApps/-/config [none]
+[debug] [2022-07-22T00:42:44.793Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/kh-semi-terrgym/webApps/-/config 200
+[debug] [2022-07-22T00:42:44.794Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/kh-semi-terrgym/webApps/-/config {"projectId":"kh-semi-terrgym","appId":"1:896184965835:web:f8c569ac1347e61b8e594e","databaseURL":"https://kh-semi-terrgym-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"kh-semi-terrgym.appspot.com","locationId":"asia-northeast3","apiKey":"AIzaSyDUA4G4enZB8-zJUgRUP_GipHN-vzrsxb0","authDomain":"kh-semi-terrgym.firebaseapp.com","messagingSenderId":"896184965835","measurementId":"G-W8RPCSDZDG"}
+[warn] ⚠  hosting: Port 5000 is not available. Trying another port... {"metadata":{"emulator":{"name":"hosting"},"message":"\u001b[33mhosting: \u001b[39mPort 5000 is not available. Trying another port..."}}
+[info] i  hosting: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] ✔  hosting: Local server: http://localhost:5005 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5005\u001b[22m\u001b[24m"}}
+[info] i  hosting: 127.0.0.1 - - [22/Jul/2022:00:42:48 +0000] "GET / HTTP/1.1" 200 4596 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [22/Jul/2022:00:42:48 +0000] \"GET / HTTP/1.1\" 200 4596 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [22/Jul/2022:00:42:48 +0000] "GET /__/firebase/init.js?useEmulator=true HTTP/1.1" 200 - "http://localhost:5005/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [22/Jul/2022:00:42:48 +0000] \"GET /__/firebase/init.js?useEmulator=true HTTP/1.1\" 200 - \"http://localhost:5005/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36\""}}
