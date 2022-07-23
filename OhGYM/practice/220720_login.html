@@ -11,11 +11,6 @@
     <form> 
         <h1>회원가입</h1>
         <div>이메일 <input type="email" id="signUpEmail"></div>
-        <div>비밀번호<input type="password" id="signUpPassword"></div>
-        <div>비밀번호 재확인 <input type="repassword" id="signUpRePassword"></div>
-        <div>이름 <input type="name" id="signUpName"></div>
-        <div>생년월일 <input type="birth" id="signUpBirth"></div>
-        <div>주소<input type="address" id="signUpAddress"></div>
         <button type="submit" id="signUpButton">회원가입</button> <!-- submit은 정보전달 가능하다. -->
     </form>
     <!--- 회원가입 폼 구현하기 끝 --->
@@ -69,15 +64,10 @@
                 // email과 password의 요소(id명)와 해당하는 값(value)를 각 변수명에 저장한다.
                 const signUpEmail = document.getElementById('signUpEmail').value;
                 const signUpPassword = document.getElementById('signUpPassword').value;
-                // 여기 부터 혼자 추기한 거,,
-                const signUpRePassword = document.getElementById('signUpRePassword').value;
-                const signUpName = document.getElementById('signUpName').value;
-                const signUpBirth = document.getElementById('signUpBirth').value;
-                const signUpAddress = document.getElementById('signUpAddress').value;
 
                 /***** 회원가입 시 필요한 파라미터로 정보 받기 *****/
                 // 위의 const 변수를 아래 createUserWithEmailAndPassword 함수의 parameter 값으로 받아온다.
-                createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword, signUpRePassword, signUpName, signUpBirth, signUpAddress) // email과 password로 user를 생성 (변수 auth와 email, password를 파라미터로 전달 - 회원 가입 화면 내의 email, password를 전달 받으면 아래의 함수가 실행된다.) 
+                createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword) // email과 password로 user를 생성 (변수 auth와 email, password를 파라미터로 전달 - 회원 가입 화면 내의 email, password를 전달 받으면 아래의 함수가 실행된다.) 
                     // java의 try-catch문과 비슷하다.
                     .then((userCredential) => { // 회원가입 성공되었다면 이 부분이 실행 (.then)
                         console.log(userCredential);
@@ -93,7 +83,7 @@
                         console.log('회원가입 실패');
                     });
                 
-                console.log(signUpEmail, signUpPassword, signUpRePassword, signUpName, signUpBirth, signUpAddress); // 회원가입 form에 작성한 정보를 가지고온다.
+                console.log(signUpEmail, signUpPassword); // 회원가입 form에 작성한 정보를 가지고온다.
                 console.log('회원가입 버튼 클릭 성공');
                 console.log(createUserWithEmailAndPassword);
             });

@@ -1,26 +1,68 @@
-/********************** firebase 연동 시작 **********************/
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
+/***************************** firebase 연동 시작 *****************************/
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import 'firebase/compat/storage';
 
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
     const firebaseConfig = {
-        apiKey: "AIzaSyDUA4G4enZB8-zJUgRUP_GipHN-vzrsxb0",
-        authDomain: "kh-semi-terrgym.firebaseapp.com",
-        databaseURL: "https://kh-semi-terrgym-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "kh-semi-terrgym",
-        storageBucket: "kh-semi-terrgym.appspot.com",
-        messagingSenderId: "896184965835",
-        appId: "1:896184965835:web:f8c569ac1347e61b8e594e",
-        measurementId: "G-W8RPCSDZDG"
+        apiKey: "AIzaSyApLlyL58_7Uh0dsUXeAtNSa6P-EQxrThs",
+        authDomain: "kh-semi-ohgym.firebaseapp.com",
+        databaseURL: "https://kh-semi-ohgym-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "kh-semi-ohgym",
+        storageBucket: "kh-semi-ohgym.appspot.com",
+        messagingSenderId: "155977779626",
+        appId: "1:155977779626:web:31628e80f6a56d3c0a43d3"
     };
+    firebase.initializeApp(firebaseConfig);
 
     // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    
-    console.log("firebase 연동 성공");
-/*********************** firebase 연동 끝 ***********************/
+    //const app = initializeApp(firebaseConfig);
+/***************************** firebase 연동 끝 *****************************/
+
+/************************** firebase에 정보 전달 시작 *************************/
+    const userDB = firebase.firestore();
+    const imgStorage = firebase.storage();
+
+    $("#signUpButton").click(function() {
+        const file = document.querySelector("#image").files[0];
+        const storageRef = imgStorage.ref();
+        const storagePath = storageRef.child("image/" + file.name);
+        const uploadImg = storagePath.put(file);
+
+        uploadImg.on("state_change", null, (error) => {
+            console.log(error);
+        },
+        () => {
+            uploadImg.snapshot.ref.getDownloadURL()
+            .then((url) => {
+                console.log(url);
+            })
+        }
+        );
+
+        const signUpEmail = $("#signUpEmail").val();
+        const signUpPassword = $("#signUpPassword").val();
+        const signUpName = $("#signUpName").val();
+        const signUpTel = $("#signUpTel").val();
+        const signUpBirth = $("#signUpBirth").val();
+
+
+        firebase.auth().createUserWithEmailAndPassword(signUpEmail, signUpPassword)
+        .then((result) => {
+            console.log(result.user);
+            console.log("회원가입 성공");
+
+            const userInfo = {
+                signUpEmail: signUpEmail,
+                signUpName: signUpName,
+                signUpTel: signUpTel,
+                signUpBirth: signUpBirth,
+            };
+
+            userDB.collection("user").doc(result.user.uid).set(userInfo);
+        })
+        .catche((erorr) => {
+            console.log(error);
+        })
+    });
