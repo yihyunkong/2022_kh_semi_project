@@ -3,6 +3,7 @@
     import { getAnalytics } from 'firebase/analytics';
     import { getFirestore } from 'firebase/firestore';
     import { getStorage } from 'firebase/storage';
+    
     // firebase personal-key
     const firebaseConfig = {
         apiKey: "AIzaSyApLlyL58_7Uh0dsUXeAtNSa6P-EQxrThs",
@@ -19,10 +20,12 @@
     const analytics = getAnalytics(app);
     const db = getFirestore(app);
     const storage = getStorage();
-/***************************** firebase 연동 끝 *****************************/
-
-/************************** firebase에 정보 전달 시작 *************************/
-    //const storage = firebase.storage();
+    /***************************** firebase 연동 끝 *****************************/
+    
+    /************************** firebase에 정보 전달 시작 *************************/
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+    
+    const auth = getAuth();
 
     $("#signUpButton").click(function() {
         const file = document.querySelector("#image").files[0];
@@ -48,7 +51,7 @@
         const signUpBirth = $("#signUpBirth").val();
 
 
-        firebase.auth().createUserWithEmailAndPassword(signUpEmail, signUpPassword)
+        createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
         .then((result) => {
             console.log(result.user);
             console.log("회원가입 성공");
