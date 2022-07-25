@@ -17,7 +17,7 @@ const app = initializeApp(firebaseConfig);
 ////////////////// 이메일로 비밀번호 기반 계정 만들기
 ////////////////// 아이디 - 비밀번호 외 추가 입력사항은 firestore
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js";
 
 const auth = getAuth(); // 아이디 - 비밀번호 저장
 const db = getFirestore(app); // 추가 입력사항 저장
@@ -32,7 +32,7 @@ document.getElementById('signUpButton').addEventListener('click', (event) => {
 
     const signUpName = document.getElementById('signUpName').value;
     const signUpTel = document.getElementById('signUpTel').value;
-    const signUpBirth = document.getElementById('signUpBirth').value;
+    //const signUpBirth = document.getElementById('signUpBirth').value;
 
     // 이메일, 비밀번호늘 athentication에 저장
     createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
@@ -40,7 +40,19 @@ document.getElementById('signUpButton').addEventListener('click', (event) => {
             const user = userCredential.user;
             console.log("아이디, 비밀번호 => " + signUpEmail, signUpPassword);
 
-            
+            //db.collection('user').doc(userCredential.user.uid).set(userInfo);
+
+            try {
+                const docRef = addDoc(collection(db, "user"), {
+                    signUpName: signUpName,
+                    signUpTel: signUpTel
+                });
+                console.log(docRef.id);
+                console.log("추가 정보 firestore에 저장 성공 !");
+            } catch (error) {
+                console.log(error);
+                console.log("추가 정보 firestore에 저장 실패 !");
+            };
 
             console.log("회원가입 성공 !");
         })
