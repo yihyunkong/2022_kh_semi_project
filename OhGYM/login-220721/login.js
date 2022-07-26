@@ -25,7 +25,7 @@ console.log(app); // firebase 연결 되었는지 확인해보기 (app에 관한
 /************************ fire base 연동하기 끝 ************************/
 
 /************************ fire base 회원가입 및 로그인 코드 시작 ************************/
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
 
 // 회원가입 및 로그인 구현시 중복되는 코드는 함수 내부 로컬변수가 아닌 전역변수로 설정한다.
 const auth = getAuth();
