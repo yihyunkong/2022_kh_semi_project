@@ -12,6 +12,10 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+console.log(app);
+
+
+
 const auth = getAuth();
 
 
@@ -30,6 +34,7 @@ const auth = getAuth();
 
                 // 로그인 성공하면 home.html로 이동
                 //location.href="OhGYM/home-220719/home.html";
+
             })
             .catch((error) => {
                 const errorMessage = error.message;
