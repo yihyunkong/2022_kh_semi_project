@@ -29,7 +29,7 @@ const auth = getAuth();
                 console.log('로그인 성공');
 
                 // 로그인 성공하면 home.html로 이동
-                location.href="OhGYM/home-220719/home.html";
+                //location.href="OhGYM/home-220719/home.html";
             })
             .catch((error) => {
                 const errorMessage = error.message;

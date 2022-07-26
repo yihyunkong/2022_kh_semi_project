@@ -56,7 +56,7 @@ document.getElementById('signUpButton').addEventListener('click', (event) => {
             console.log("회원가입 성공 !");
             
             // 여기서 페이징 처리 !! (회원가입이 성공하면 회원가입 성공 화면으로)
-            window.onload()
+            //window.onload()
         })
         .catch((error) => {
             const errorCode = error.code;
