@@ -1,0 +1,84 @@
+/******************* firebase v9 - web : module *******************/
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
+
+////////////////// firebaseConfig
+const firebaseConfig = {
+    apiKey: "AIzaSyApLlyL58_7Uh0dsUXeAtNSa6P-EQxrThs",
+    authDomain: "kh-semi-ohgym.firebaseapp.com",
+    databaseURL: "https://kh-semi-ohgym-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "kh-semi-ohgym",
+    storageBucket: "kh-semi-ohgym.appspot.com",
+    messagingSenderId: "155977779626",
+    appId: "1:155977779626:web:31628e80f6a56d3c0a43d3"
+};
+
+const app = initializeApp(firebaseConfig);
+
+////////////////// 이메일로 비밀번호 기반 계정 만들기
+////////////////// 아이디 - 비밀번호 외 추가 입력사항은 firestore
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js";
+
+const auth = getAuth(); // 아이디 - 비밀번호 저장
+const db = getFirestore(app); // 추가 입력사항 저장
+
+////////////////// 회원가입 이벤트 처리
+// 사용자가 중복검사 버튼을 놀렀을 떄 email을 입력하는 input 태그에 있는 내용이 firebase 내에서 검색이 되어야함
+// 동일한 내용이 있으면 '중복된 이메일 입니다' alert
+// 동일한 내용이 없으면 다음 input 태그 활성화가 되어야함
+
+const signUpEmail = document.getElementById('signUpEmail').value;
+const signUpPassword = document.getElementById('signUpPassword').value;
+const signUpName = document.getElementById('signUpName').value;
+const signUpTel = document.getElementById('signUpTel').value;
+const signUpBirth = document.getElementById('signUpBirth').value;
+
+
+document.getElementById('emailCheck').addEventListener('click', (event) => {
+    if('signUpEmail' == auth) { // 여기가 문제야..... 뭐가? 파이어베이스에 저장된 이메일을 불러와야해
+        alert('중복된 이메일 입니다. 다른 이메일을 입력해주세요.');
+    } else if (signUpEmail == "") {
+        alert('이메일을 입력해주세요.');
+    } else {
+        alert('사용 가능한 이메일 입니다.');
+        // 하단의 try-catch문 실행 => else 문 안에 들어와야한다.
+        console.log("아이디, 비밀번호 => " + signUpEmail, signUpPassword);
+    }
+})
+
+// 가입 버튼을 눌렀을 때, signUpEmail에 들어오는 값과 signUpPassword에 들어오는 값이 firebase에 전달되어야한다.
+document.getElementById('signUpButton').addEventListener('click', (event) => {
+    event.preventDefault();
+    
+    // 이메일, 비밀번호를 athentication에 저장
+    createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
+        .then((userCredential) => {
+            const user = userCredential.user;
+
+            try {
+                const docRef = addDoc(collection(db, "user"), {
+                    signUpName: signUpName,
+                    signUpTel: signUpTel,
+                    signUpBirth: signUpBirth
+                });
+
+                console.log(docRef.id);
+                console.log("추가 정보 firestore에 저장 성공 !");
+            } catch (error) {
+                console.log(error);
+                console.log("추가 정보 firestore에 저장 실패 !");
+            };
+
+            console.log("회원가입 성공 !");
+            
+            // 여기서 페이징 처리 !! (회원가입이 성공하면 회원가입 성공 화면으로)
+            //window.onload()
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log("회원가입 실패 !");
+            console.log(errorMessage);
+        });
+
+});
