@@ -34,6 +34,14 @@ document.getElementById('signUpButton').addEventListener('click', (event) => {
     const signUpName = document.getElementById('signUpName').value;
     const signUpTel = document.getElementById('signUpTel').value;
     const signUpBirth = document.getElementById('signUpBirth').value;
+
+    const userInfo = {
+        signUpEmail,
+        signUpPassword,
+        signUpName,
+        signUpTel,
+        signUpBirth
+    };
     
     // 이메일, 비밀번호를 athentication에 저장
     createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
@@ -48,17 +56,19 @@ document.getElementById('signUpButton').addEventListener('click', (event) => {
                 });
 
                 console.log(docRef.id);
-                console.log("추가 정보 firestore에 저장 성공 !");
+                console.log("추가 정보 firestore에 저장 성공");
+                console.log("회원가입 성공");
+                console.log(userInfo);
+                alert('OhGYM에 가입되었습니다.');
+
+                // 회원가입 성공하면 다음 페이지(회원가입 성공 페이지)로 이동
+                //location.href = "./joinSuccess.html";
+
             } catch (error) {
                 console.log(error);
-                console.log("추가 정보 firestore에 저장 실패 !");
+                console.log("추가 정보 firestore에 저장 실패");
             };
-
-            console.log("회원가입 성공");
-            alert('OhGYM에 가입되었습니다.');
             
-            // 여기서 페이징 처리 !! (회원가입이 성공하면 회원가입 성공 화면으로)
-            //window.onload()
         })
         .catch((error) => {
             const errorCode = error.code;
