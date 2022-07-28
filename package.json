@@ -10,6 +10,7 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "firebase": "^8.10.1"
+    "firebase": "^8.10.1",
+    "firebase-admin": "^11.0.0"
   }
 }
