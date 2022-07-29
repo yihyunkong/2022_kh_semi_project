@@ -1,47 +1,25 @@
-* {
+/* * {
     border: 1px solid red
-}
+} */
 
- /***************************** header CSS 시작 ******************************/
+/***************************** header CSS 시작 ******************************/
 header {
-    height: 40px;
-    font-size: 15px;
-    padding-top: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-header li {
-    float: left;
-    list-style: none;
-}
-
-header a {
-    color: rgb(208, 208, 208);
-}
-
-header div {
-    float: right;
-}
-
-#btn-login {
-    /* background-color: white; */
-    /* border: none; */
-    color: white;
-    font-style: none;
-    padding-right: 10px;
-}
-
-#btn-join {
-    /* background-color: white; */
-    /* border: none; */
-    color: white
-}
-
-  /* >>>>>>>>> 로고시작 */
-.logo {
-    background-color: rgb(255, 255, 255);
+    background-color: skyblue;
     background: url("/OhGYM/ver1.0/imgs/gym-back.jpeg");
+}
+
+.tap {
+    padding: 10px;
+}
+
+.tap a {
+    color: white;
+    padding: 0px 5px 0px 5px;
+    font-size: 15px;
+}
+
+.membership {
+    float: right;
 }
 
 .logo h1 {
@@ -67,7 +45,14 @@ header div {
     padding: 50px 100px 50px 100px;
 
 }
- /****************************** header CSS 끝 *******************************/
+/****************************** header CSS 끝 *******************************/
+
+
+
+/***************************** session CSS 시작 ******************************/
+
+/****************************** session CSS 끝 *******************************/
+
 
 
 /****************************** footer CSS 시작 *******************************/
