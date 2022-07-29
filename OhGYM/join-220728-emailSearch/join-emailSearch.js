@@ -35,13 +35,13 @@ document.getElementById('signUpButton').addEventListener('click', (event) => {
     const signUpTel = document.getElementById('signUpTel').value;
     const signUpBirth = document.getElementById('signUpBirth').value;
 
-    const userInfo = {
-        signUpEmail,
-        signUpPassword,
-        signUpName,
-        signUpTel,
-        signUpBirth
-    };
+    // const userInfo = {
+    //     signUpEmail,
+    //     signUpPassword,
+    //     signUpName,
+    //     signUpTel,
+    //     signUpBirth
+    // };
     
     // 이메일, 비밀번호를 athentication에 저장
     createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)

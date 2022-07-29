@@ -1,32 +1,68 @@
-/* * {
-    border: 1px solid red;
-} */
-
-.top {
-    padding-top: 5px;
-    font-size: 20px;
+* {
+    border: 1px solid red
 }
 
-ul.top-menu {
+ /* 헤더 style */
+header {
+    height: 40px;
+    font-size: 15px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+header li {
+    float: left;
     list-style: none;
 }
 
-a:link {
-    text-decoration: none;
+header a {
+    color: rgb(208, 208, 208);
 }
 
-nav.top-bar {
-    font-size: 13px;
-    list-style: none;
-    margin: 10px 0;
+header div {
+    float: right;
 }
 
-h1 {
-    margin: 20px;
-    text-align: center;
-    font-size: 90px;
+
+#btn-login {
+    /* background-color: white; */
+    /* border: none; */
+    color: white;
+    font-style: none;
+    padding-right: 10px;
 }
 
+#btn-join {
+    /* background-color: white; */
+    /* border: none; */
+    color: white
+}
+
+  /* >>>>>>>>> 로고시작 */
+.logo {
+    background-color: rgb(255, 255, 255);
+    background: url("/OhGYM/ver1.0/imgs/gym-back.jpeg");
+}
+
+.logo h1 {
+    padding: 10px 10px 10px 10px;
+    margin: 0px 0px 0px 0px;
+    text-align: left;
+    font-size: 70px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+}
+
+.logo a {
+    text-decoration: none; color: hwb(0 100% 0%);
+}
+
+
+.logo img {
+    display: inline-block;
+    margin-bottom: 13px;
+}
 
 /****************************** footer CSS 시작 *******************************/
 .site-footer {
