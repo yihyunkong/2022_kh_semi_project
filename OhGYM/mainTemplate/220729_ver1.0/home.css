@@ -41,7 +41,7 @@ header div {
   /* >>>>>>>>> 로고시작 */
 .logo {
     background-color: rgb(255, 255, 255);
-    background: url("/OhGYM/ver1.0/imgs/gym-back.jpeg");
+    background: url("/OhGYM/mainTemplate/imgs/gym-back.jpeg");
 }
 
 .logo h1 {

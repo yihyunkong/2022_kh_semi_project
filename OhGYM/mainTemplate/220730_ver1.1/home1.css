@@ -5,7 +5,7 @@
 /***************************** header CSS 시작 ******************************/
 header {
     background-color: skyblue;
-    background: url("/OhGYM/ver1.0/imgs/gym-back.jpeg");
+    background: url("/OhGYM/mainTemplate/imgs/gym-back.jpeg");
 }
 
 .tap {
