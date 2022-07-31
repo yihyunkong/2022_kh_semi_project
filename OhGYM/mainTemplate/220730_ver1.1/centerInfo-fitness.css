@@ -1,6 +1,6 @@
-* {
+/* * {
     border: 1px solid red
-}
+} */
 
 /***************************** header CSS 시작 ******************************/
 header {
@@ -43,28 +43,37 @@ header {
 
 /****************************** header CSS 끝 *******************************/
 
+.contents-title {
+    margin-top: 50px;
+}
 
 .contents {
     padding: 60px 110px 60px 110px;
 }
 
-.contents-title {
-    margin-top: 50px;
-}
-
 /***************************** session CSS 시작 ******************************/
 
-.contents-obj {
-    display: flex;
-}
-
-.contents-map {
+.fitness-title {
     text-align: center;
+    margin-top: 20px;
 }
 
-.map-detail {
-    width: 400px;
-    height: auto;
+.card-cols {
+    display: flex;
+    padding-bottom: 20px;
+}
+
+.card {
+    margin: 0px auto;
+}
+
+.fitness-pic {
+    width: 350px;
+    height: 350px;
+}
+
+.card-text {
+    text-align: center;
 }
 /****************************** session CSS 끝 *******************************/
 

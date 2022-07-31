@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OhGYM - main template</title>
-    <link rel="stylesheet" href="./centerInfo-howCome.css">
+    <title>OhGYM - 센터 소개 :: 시설 안내</title>
+    <link rel="stylesheet" href="./centerInfo-fitness.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
@@ -98,20 +98,68 @@
     <section>
         <div class="contents-title">
             <h1 style="text-align: center; margin-bottom: 20px;">센터 소개</h1>
-            <h2 style="text-align: center; font-size: 30px;">오시는 길</h2>
+            <h2 style="text-align: center; font-size: 30px;">시설 안내</h2>
         </div>
         <div class="contents">
-            <div class="contents-obj">
-                <div id="map-kakao" class="p-2 flex-fill" style="overflow: hidden;">
-                    <div class="contents-map">
-                        카카오 맵 API 
+            <!-- 피트니스 소개 이미지 시작 -->
+            <!-- 피트니스 편의시설 시작 -->
+            <div class="fitness-card">
+                <h5 class="fitness-title">편의시설</h5>
+                <div class="card-cols">
+                    <div class="card">
+                        <img src="/OhGYM/mainTemplate/imgs/infodesk.png" class="fitness-pic" alt="인포데스크">
+                        <div class="card-body"><p class="card-text">인포데스크</p></div>
+                    </div>
+                    <div class="card">
+                        <img src="/OhGYM/mainTemplate/imgs/locker.jpeg" class="fitness-pic" alt="락커룸">
+                        <div class="card-body"><p class="card-text">락커룸</p></div>
+                    </div>
+                    <div class="card">
+                        <img src="/OhGYM/mainTemplate/imgs/shower.jpeg" class="fitness-pic" alt="샤워실">
+                        <div class="card-body"><p class="card-text">샤워실</p></div>
                     </div>
                 </div>
-                <div id="map-text" class="p-2 flex-fill" style="overflow: hidden;">
-                    <div class="contents-map">
-                        <img class="map-detail" src="/OhGYM/mainTemplate/imgs/how-come.png" alt="오시는 길 상세">
+                <!-- 피트니스 편의시설 끝 -->
+                <!-- 피트니스 강의장 시작 -->
+                <h5 class="fitness-title">강의장</h5>
+                <div class="card-cols">
+                    <div class="card">
+                        <img src="/OhGYM/mainTemplate/imgs/gym-pt1.jpg" class="fitness-pic" alt="인포데스크" id="pt-room">
+                        <div class="card-body"><p class="card-text">PT룸</p></div>
+                    </div>
+                    <div class="card">
+                        <img src="/OhGYM/mainTemplate/imgs/pilates.png" class="fitness-pic" alt="락커룸">
+                        <div class="card-body"><p class="card-text">필라테스룸</p></div>
+                    </div>
+                    <div class="card">
+                        <img src="/OhGYM/mainTemplate/imgs/screen-golf.jpeg" class="fitness-pic" alt="샤워실">
+                        <div class="card-body"><p class="card-text">스크린골프룸</p></div>
                     </div>
                 </div>
+                <!-- 피트니스 middle 끝 -->
+                <!-- 피트니스 bottom 시작 -->
+                <div class="card-cols">
+                    <div class="card">
+                            <img src="/OhGYM/mainTemplate/imgs/spinning.jpeg" class="fitness-pic" alt="스피닝룸">
+                        <div class="card-body">
+                            <p class="card-text">스피닝룸</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/OhGYM/mainTemplate/imgs/" class="fitness-pic" alt="필라테스룸">
+                        <div class="card-body">
+                            <p class="card-text">fdfdfdfdf</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/OhGYM/mainTemplate/imgs/" class="fitness-pic" alt="스크린골프룸">
+                        <div class="card-body">
+                            <p class="card-text">fdfdfdfdf</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 피트니스 bottom 끝 -->
+                <!-- 피트니스 소개 이미지 끝 -->
             </div>
         </div>
     </section>
