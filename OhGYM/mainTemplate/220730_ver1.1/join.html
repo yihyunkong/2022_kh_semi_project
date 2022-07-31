@@ -5,8 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OhGYM - main template</title>
-    <link rel="stylesheet" href="./mainTemplate.css">
+    <link rel="stylesheet" href="./join.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">        <link rel="stylesheet" href="./join.css">
+    <script defer type="module" src="./join.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -97,8 +100,42 @@
     <!------------------------- section 시작 ------------------------->
     <section>
         <div class="contents">
-            <h1 style="text-align: center; margin-bottom: 20px;">카테고리 제목</h1>
-            <h2 style="text-align: center; font-size: 30px;">카테고리 소제목</h2>
+            <div class="join-contents">
+                <h1 class="join-title">회원가입</h1>
+                <div class="join-box">
+                    <div class="join-input">
+                        <form class="join">
+                            <!-- 부트스트랩 제공 화면 -->
+                            <!-- 가입 화면 시작 -->
+                            <div class="container mt-3">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="이메일" id="signUpEmail"/>
+                                    <!-- <input type="button" value="이메일 중복검사" id="emailCheck"> -->
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" class="form-control" placeholder="비밀번호" id="signUpPassword" />
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="이름" id="signUpName" />
+                                </div>
+                                <div class="mb-3">
+                                    <input type="tel" class="form-control" placeholder="휴대폰 번호" id="signUpTel" />
+                                </div>
+                                <div class="mb-3">
+                                    <input type="date" class="form-control" name="birth" id="signUpBirth" />
+                                </div>
+                                <!-- <div class="mb-3">
+                                    <input type="file" class="form-control" name="image" id="image">
+                                    <p class="img-msg">* 프로필 사진으로 사용할 jpg, png 파일을 선택해주세요.</p>
+                                </div>  -->
+                                <button class="btn btn-primary" id="signUpButton">가입하기</button>
+                            </div>
+                            <!-- 가입 화면 끝 -->
+                            <!-- 부트스트랩 제공 화면 끝 -->
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <!-------------------------- section 끝 -------------------------->

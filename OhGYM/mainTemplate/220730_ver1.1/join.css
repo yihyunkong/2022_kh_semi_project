@@ -41,12 +41,13 @@ header {
     margin-bottom: 13px;
 }
 
+.contents {
+    padding: 60px 150px 50px 150px;
+
+}
 /****************************** header CSS 끝 *******************************/
 
 
-.contents {
-    padding: 60px 110px 60px 110px;
-}
 
 /***************************** session CSS 시작 ******************************/
 
